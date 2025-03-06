@@ -4,7 +4,7 @@ const beep = () => process.stdout.write("\x07");
 const secondsToBeepArr = process.argv.slice(2);
 // user inputs are all strings, convert to number
 const validated = secondsToBeepArr.filter((input) => {
-  const inputAsNumber = Number(input)
+  const inputAsNumber = Number(input);
   return !Number.isNaN(inputAsNumber) && inputAsNumber >= 0;
 });
 
@@ -12,14 +12,14 @@ const validated = secondsToBeepArr.filter((input) => {
 class Beeps {
 
   constructor(tone, delay) {
-    this.tone = tone
-    this.delay = delay
+    this.tone = tone;
+    this.delay = delay;
   }
 
   ring() {
-    setTimeout(this.tone, this.delay); // to ring at a delay 
+    setTimeout(this.tone, this.delay); // to ring at a delay
   }
-};
+}
 
 validated.forEach((second) => {
   new Beeps(beep, (second * 1000)).ring();
